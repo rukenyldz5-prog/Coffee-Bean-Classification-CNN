@@ -4,11 +4,12 @@ Bu proje, **İstanbul Arel Üniversitesi Mühendislik Fakültesi LBLM368 - Derin
 
 - **Öğrenci Adı Soyadı:** Ruken YILDIZ  
 - **Öğrenci Numarası:** 230309047  
+- **GitHub Deposu:** [https://github.com/rukenyldz5-prog/Coffee-Bean-Classification-CNN](https://github.com/rukenyldz5-prog/Coffee-Bean-Classification-CNN)
 
 ---
 
 ## 📌 Projenin Amacı ve Özeti
-Bu çalışmada, kahve çekirdeği fotoğraflarını kullanarak çekirdeklerin kavrulma derecelerini (**Green**, **Light**, **Medium** ve **Dark**) derin öğrenme tabanlı bir Evrişimli Sinir Ağı (CNN) ile otomatik olarak sınıflandırmak amaçlanmıştır. Endüstriyel kahve kavurma ve paketleme tesislerinde insan gözlemine dayalı kalite kontrol hatalarını ortadan kaldırarak standardizasyon sağlamaktadır.
+Bu çalışmada, kahve çekirdeği fotoğraflarını kullanarak çekirdeklerin kavrulma derecelerini (**Green**, **Light**, **Medium** ve **Dark**) derin öğrenme tabanlı bir Evrişimli Sinir Ağı (CNN) ile otomatik olarak sınıflandırmak amaçlanmıştır. Endüstriyel kahve kavurma ve paketleme tesislerinde insan gözlemine dayalı kalite kontrol hatalarının azaltılmasına katkı sağlamak hedeflenmektedir.
 
 ---
 
@@ -20,7 +21,7 @@ Bu çalışmada, kahve çekirdeği fotoğraflarını kullanarak çekirdeklerin k
   2. `Green` (Kavrulmamış / Ham Çekirdek)
   3. `Light` (Açık Kavrulmuş)
   4. `Medium` (Orta Kavrulmuş)
-- **Veri Boru Hattı:** `tf.data` API'si üzerinden `.cache()` ve `.prefetch(buffer_size=tf.data.AUTOTUNE)` optimizasyonları uygulanmıştır.
+- **Veri Boru Hattı Optimizasyonu:** `tf.data` API'si üzerinden `.cache()` ve `.prefetch(buffer_size=tf.data.AUTOTUNE)` optimizasyonları uygulanmıştır.
 
 ---
 
@@ -59,7 +60,8 @@ Dense (4, Softmax)
 - **Duyarlılık (Recall - Macro Avg):** `0.9675` (%96.75)
 - **F1-Skoru (Macro Avg):** `0.9674` (%96.74)
 
-### Doğru ve Yanlış Tahmin Örnekleri
+### Doğru ve Yanlış Tahmin Örnekleri (Model Çıktıları)
+Modelin `model.predict` Softmax olasılık çıktılarından elde edilen 3 doğru ve 3 yanlış sınıflandırma örneği:
 ![Örnek Tahminler](ornek_tahminler.png)
 
 ### Karmaşıklık Matrisi (Confusion Matrix)
@@ -77,20 +79,20 @@ Dense (4, Softmax)
 pip install -r requirements.txt
 ```
 
-### 2. Modeli Eğitin ve Test Edin:
+### 2. Modeli Eğitin, Değerlendirin ve Grafikleri Üretin:
 ```bash
 python train.py
 ```
-*(Veri seti `kagglehub` üzerinden otomatik indirilir, model eğitilir ve `coffee_bean_cnn_model.keras` olarak kaydedilir).*
+*(Veri seti `kagglehub` üzerinden otomatik indirilir, model eğitilir, `coffee_bean_cnn_model.keras` olarak kaydedilir, grafikler ve örnek tahminler üretilir).*
 
 ### 3. Yeni Bir Fotoğrafı Test Edin (Inference):
 ```bash
-python predict.py ornek_gorsel.png
+python predict.py test_gorsel.png
 ```
 
 ---
 
-## 📚 Akademik Referanslar
-1. **Arboleda, E. R. (2018).** "Classification of Coffee Bean Species Using Image Processing and Artificial Neural Network." *International Journal of Advanced Trends in Computer Science and Engineering*.
-2. **Oliveira, E. M., et al. (2016).** "Classification of green and roasted coffee beans using computer vision and hyperspectral imaging." *Food Chemistry*, 206, 120-127.
-3. **Tuan, T. M., et al. (2021).** "Deep Convolutional Neural Network for Coffee Bean Roasting Level Classification." *IEEE Access*, 9, 87410-87422.
+## 📚 Doğrulanmış Akademik Kaynaklar
+1. **Chu, B., Yu, K., Zhao, Y., & He, Y. (2018).** "Development of Noninvasive Classification Methods for Different Roasting Degrees of Coffee Beans Using Hyperspectral Imaging." *Sensors*, 18(4), 1259. DOI: [10.3390/s18041259](https://doi.org/10.3390/s18041259)
+2. **García Rivas, R. E., Bertarini, P. L. L., & Fernandes, H. (2025).** "Automated Coffee Roast Level Classification Using Machine Learning and Deep Learning Models." *Journal of Food Science*, 90(9), e70532. DOI: [10.1111/1750-3841.70532](https://doi.org/10.1111/1750-3841.70532)
+3. **Arboleda, E. R. (2018).** "Classification of Coffee Bean Species Using Image Processing and Artificial Neural Network." *2018 IEEE 10th International Conference on Humanoid, Nanotechnology, Information Technology, Communication and Control, Environment and Management (HNICEM)*, Baguio City, Philippines, pp. 1-5. DOI: [10.1109/HNICEM.2018.8666384](https://doi.org/10.1109/HNICEM.2018.8666384)
