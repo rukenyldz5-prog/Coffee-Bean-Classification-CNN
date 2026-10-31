@@ -1,0 +1,178 @@
+{
+  "dataset_counts": {
+    "train": 1000,
+    "valid": 200,
+    "test": 400
+  },
+  "class_names": [
+    "Dark",
+    "Green",
+    "Light",
+    "Medium"
+  ],
+  "confusion_matrix": [
+    [
+      100,
+      0,
+      0,
+      0
+    ],
+    [
+      0,
+      100,
+      0,
+      0
+    ],
+    [
+      0,
+      4,
+      96,
+      0
+    ],
+    [
+      0,
+      0,
+      0,
+      100
+    ]
+  ],
+  "metrics": {
+    "accuracy": 0.99,
+    "precision_macro": 0.9903846153846154,
+    "recall_macro": 0.99,
+    "f1_macro": 0.9899959983993598
+  },
+  "history": {
+    "accuracy": [
+      0.4959999918937683,
+      0.8830000162124634,
+      0.9490000009536743,
+      0.906000018119812,
+      0.9509999752044678,
+      0.9459999799728394,
+      0.9589999914169312,
+      0.9829999804496765,
+      0.9940000176429749,
+      0.9940000176429749
+    ],
+    "loss": [
+      1.080933690071106,
+      0.3147795498371124,
+      0.1354674994945526,
+      0.2509247362613678,
+      0.11375913769006729,
+      0.14834538102149963,
+      0.10323382914066315,
+      0.042205505073070526,
+      0.024281945079565048,
+      0.018758069723844528
+    ],
+    "val_accuracy": [
+      0.8700000047683716,
+      0.9800000190734863,
+      0.875,
+      0.9850000143051147,
+      0.9599999785423279,
+      0.8799999952316284,
+      0.9900000095367432,
+      0.9800000190734863,
+      0.9900000095367432,
+      0.9800000190734863
+    ],
+    "val_loss": [
+      0.4534798562526703,
+      0.08033962547779083,
+      0.3683694005012512,
+      0.056874893605709076,
+      0.1103086918592453,
+      0.325372576713562,
+      0.027206558734178543,
+      0.04422013834118843,
+      0.020726611837744713,
+      0.05340252071619034
+    ]
+  },
+  "selected_samples": [
+    {
+      "test_indeksi": 0,
+      "dosya": "data_split_generated/test/Dark/0000_dark (1).png",
+      "sha256": "ce019807df78f9d26003b520678faf556b5f1c76f9c0ce84e8cc11518fe4ccd6",
+      "gercek": "Dark",
+      "tahmin": "Dark",
+      "dogru": true,
+      "guven": 0.9999953508377075,
+      "p_Dark": 0.9999953508377075,
+      "p_Green": 3.814835816059522e-21,
+      "p_Light": 6.230217740117491e-27,
+      "p_Medium": 4.629309387382818e-06
+    },
+    {
+      "test_indeksi": 100,
+      "dosya": "data_split_generated/test/Green/0000_green (1).png",
+      "sha256": "8e91a48acad6842a4485fd90fc9672e497b36e6cd5bec3fdda7f19fcf5a15ab0",
+      "gercek": "Green",
+      "tahmin": "Green",
+      "dogru": true,
+      "guven": 0.9999997615814209,
+      "p_Dark": 2.3574557861394396e-09,
+      "p_Green": 0.9999997615814209,
+      "p_Light": 1.690367810169846e-07,
+      "p_Medium": 9.151259661166478e-08
+    },
+    {
+      "test_indeksi": 200,
+      "dosya": "data_split_generated/test/Light/0000_light (1).png",
+      "sha256": "d2ad3257d400d04e55f36a1bbf429ddf90b2acf245dc1f5f98b6c6f27394a787",
+      "gercek": "Light",
+      "tahmin": "Light",
+      "dogru": true,
+      "guven": 0.9991612434387207,
+      "p_Dark": 3.199718484961367e-12,
+      "p_Green": 0.0008363205706700683,
+      "p_Light": 0.9991612434387207,
+      "p_Medium": 2.469508899594075e-06
+    },
+    {
+      "test_indeksi": 205,
+      "dosya": "data_split_generated/test/Light/0005_light (13).png",
+      "sha256": "4dc3c8cb1588a563dde549d35867d31b06a991456b931547d71aee07ba15d3ef",
+      "gercek": "Light",
+      "tahmin": "Green",
+      "dogru": false,
+      "guven": 0.9575777649879456,
+      "p_Dark": 3.050846686392106e-08,
+      "p_Green": 0.9575777649879456,
+      "p_Light": 0.041882555931806564,
+      "p_Medium": 0.0005397007917053998
+    },
+    {
+      "test_indeksi": 211,
+      "dosya": "data_split_generated/test/Light/0011_light (19).png",
+      "sha256": "a2d6c1571f903e0f196cbab78a098c23a23236cef03a1b62715c9e9806670bb3",
+      "gercek": "Light",
+      "tahmin": "Green",
+      "dogru": false,
+      "guven": 0.7487101554870605,
+      "p_Dark": 2.2090379303563168e-08,
+      "p_Green": 0.7487101554870605,
+      "p_Light": 0.2511306405067444,
+      "p_Medium": 0.00015913229435682297
+    },
+    {
+      "test_indeksi": 216,
+      "dosya": "data_split_generated/test/Light/0016_light (23).png",
+      "sha256": "767efadb3a408b89495c0f87393029c2c4788cfa5edacf9336d4e44368c73ca1",
+      "gercek": "Light",
+      "tahmin": "Green",
+      "dogru": false,
+      "guven": 0.9774523973464966,
+      "p_Dark": 3.066972897869391e-09,
+      "p_Green": 0.9774523973464966,
+      "p_Light": 0.02252878248691559,
+      "p_Medium": 1.8803502825903706e-05
+    }
+  ],
+  "seed": 42,
+  "epochs": 10,
+  "experiment_note": "Yeni bir eğitimdir; önceki raporun sayılarıyla zorunlu olarak aynı değildir."
+}

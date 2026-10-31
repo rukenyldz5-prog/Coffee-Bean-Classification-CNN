@@ -1,6 +1,8 @@
-tensorflow>=2.10.0
-numpy
-matplotlib
-seaborn
-scikit-learn
-kagglehub
+tensorflow>=2.16,<2.22
+kagglehub>=0.3,<1.0
+numpy>=1.26
+matplotlib>=3.8
+seaborn>=0.13
+scikit-learn>=1.4
+Pillow>=10
+python-docx>=1.1
