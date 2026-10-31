@@ -16,7 +16,7 @@ Proje: Evrişimli Sinir Ağları (CNN) ile Kahve Çekirdeği Kavurma Seviyelerin
 
 def main():
   # 1. VERİ SETİNİ İNDİRME
-  print("1/5: Veri seti indiriliyor...")
+  print("1/6: Veri seti indiriliyor...")
   dataset_path = kagglehub.dataset_download(
       "gpiosenka/coffee-bean-dataset-resized-224-x-224"
   )
@@ -36,8 +36,8 @@ def main():
   IMG_SIZE = (224, 224)
   BATCH_SIZE = 32
 
-  # 2. VERİLERİ YÜKLEME
-  print("2/5: Görseller yükleniyor...")
+  # 2. VERİLERİ YÜKLEME VE PREFETCH OPTİMİZASYONU
+  print("2/6: Görseller yükleniyor ve tf.data optimizasyonu uygulanıyor...")
   train_ds = tf.keras.utils.image_dataset_from_directory(
       train_dir, image_size=IMG_SIZE, batch_size=BATCH_SIZE, shuffle=True
   )
@@ -51,8 +51,14 @@ def main():
   class_names = train_ds.class_names
   print("Sınıflar:", class_names)
 
+  # Performans optimizasyonu (Cache ve Prefetch)
+  AUTOTUNE = tf.data.AUTOTUNE
+  train_ds = train_ds.cache().prefetch(buffer_size=AUTOTUNE)
+  val_ds = val_ds.cache().prefetch(buffer_size=AUTOTUNE)
+  test_ds = test_ds.cache().prefetch(buffer_size=AUTOTUNE)
+
   # 3. CNN MODEL MİMARİSİ
-  print("3/5: CNN Modeli kuruluyor...")
+  print("3/6: CNN Modeli kuruluyor...")
   model = models.Sequential([
       layers.Input(shape=(224, 224, 3)),
       layers.Rescaling(1.0 / 255),
@@ -75,12 +81,16 @@ def main():
   )
   model.summary()
 
-  # 4. EĞİTİM
-  print("4/5: Model eğitiliyor (10 epoch)...")
+  # 4. EĞİTİM (Aşırı öğrenmeyi izleme)
+  print("4/6: Model eğitiliyor (10 epoch)...")
   history = model.fit(train_ds, validation_data=val_ds, epochs=10)
 
+  # Eğitilen Modeli Kaydetme
+  model.save("coffee_bean_cnn_model.keras")
+  print("Model başarıyla 'coffee_bean_cnn_model.keras' olarak kaydedildi.")
+
   # 5. METRİKLER VE GRAFİKLER
-  print("5/5: Sonuçlar değerlendiriliyor...")
+  print("5/6: Sonuçlar değerlendiriliyor ve grafikler çiziliyor...")
   epochs_range = range(1, 11)
 
   plt.figure(figsize=(12, 5))
@@ -155,7 +165,7 @@ def main():
   plt.savefig("confusion_matrix.png", dpi=300)
   plt.close()
 
-  print("Eğitim ve görselleştirme başarıyla tamamlandı!")
+  print("6/6: Tüm eğitim, değerlendirme ve görselleştirme tamamlandı!")
 
 
 if __name__ == "__main__":

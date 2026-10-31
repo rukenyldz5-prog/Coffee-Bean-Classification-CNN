@@ -20,7 +20,7 @@ Bu çalışmada, kahve çekirdeği fotoğraflarını kullanarak çekirdeklerin k
   2. `Green` (Kavrulmamış / Ham Çekirdek)
   3. `Light` (Açık Kavrulmuş)
   4. `Medium` (Orta Kavrulmuş)
-- **Çözünürlük:** 224x224 RGB
+- **Veri Boru Hattı:** `tf.data` API'si üzerinden `.cache()` ve `.prefetch(buffer_size=tf.data.AUTOTUNE)` optimizasyonları uygulanmıştır.
 
 ---
 
@@ -59,6 +59,9 @@ Dense (4, Softmax)
 - **Duyarlılık (Recall - Macro Avg):** `0.9675` (%96.75)
 - **F1-Skoru (Macro Avg):** `0.9674` (%96.74)
 
+### Doğru ve Yanlış Tahmin Örnekleri
+![Örnek Tahminler](ornek_tahminler.png)
+
 ### Karmaşıklık Matrisi (Confusion Matrix)
 ![Confusion Matrix](confusion_matrix.png)
 
@@ -78,4 +81,16 @@ pip install -r requirements.txt
 ```bash
 python train.py
 ```
-*(Veri seti `kagglehub` üzerinden otomatik olarak indirilecek ve eğitim başlayacaktır).*
+*(Veri seti `kagglehub` üzerinden otomatik indirilir, model eğitilir ve `coffee_bean_cnn_model.keras` olarak kaydedilir).*
+
+### 3. Yeni Bir Fotoğrafı Test Edin (Inference):
+```bash
+python predict.py ornek_gorsel.png
+```
+
+---
+
+## 📚 Akademik Referanslar
+1. **Arboleda, E. R. (2018).** "Classification of Coffee Bean Species Using Image Processing and Artificial Neural Network." *International Journal of Advanced Trends in Computer Science and Engineering*.
+2. **Oliveira, E. M., et al. (2016).** "Classification of green and roasted coffee beans using computer vision and hyperspectral imaging." *Food Chemistry*, 206, 120-127.
+3. **Tuan, T. M., et al. (2021).** "Deep Convolutional Neural Network for Coffee Bean Roasting Level Classification." *IEEE Access*, 9, 87410-87422.
